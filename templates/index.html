@@ -1,0 +1,107 @@
+{% extends "layout.html"%}
+{% block content %}
+
+    <div class="row">
+      <div class="col-sm-8">
+        <div class="row">
+          <!-- Deaths Chart -->
+          <div class="col-sm-12">
+            <div class="chart-wrapper">
+              <div class="chart-title">
+                Number of Deaths
+              </div>
+              <div class="chart-stage">
+                <div id="deaths-bar-chart"></div>
+              </div>
+            </div>
+          </div>
+          <!-- Deaths Chart -->
+
+          <!-- Resources -->
+          <div class="col-sm-6">
+            <div class="chart-wrapper">
+              <div class="chart-title">
+                Resources Type
+              </div>
+              <div class="chart-stage">
+                <div id="resource-type-row-chart"></div>
+              </div>
+            </div>
+          </div>
+          <!-- Resources -->
+
+          <!-- funding Pie -->
+          <div class="col-sm-6">
+            <div class="chart-wrapper">
+              <div class="chart-title">
+                Funding Status
+              </div>
+              <div class="chart-stage">
+                <div id="funding-chart"></div>
+              </div>
+            </div>
+          </div>
+          <!-- funding Pie -->
+        </div>
+      </div>
+
+      <!-- Poverty -->
+      <div class="col-sm-3">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Poverty Level
+          </div>
+          <div class="chart-stage">
+            <div id="poverty-level-row-chart"></div>
+          </div>
+        </div>
+      </div>
+      <!-- Poverty -->
+
+      <!-- menu select -->
+      <div class="col-sm-6">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Donation State
+          </div>
+          <div class="chart-stage">
+            <div id="menu-select"></div>
+          </div>
+        </div>
+      </div>
+      <!-- menu select -->
+
+      <!-- Metric 1 -->
+      <div class="col-sm-2">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Total Number of Donations
+          </div>
+          <div class="chart-stage" style="background: #33CC99;
+            position: relative;
+            font-size: 29px;
+            color: white;
+            vertical-align: middle;
+            text-align: center;
+            padding-top: 12px;
+            padding-bottom: 0px;">
+            <div id="number-projects-nd"></div>
+          </div>
+        </div>
+      </div>
+      <!-- Metric 1 -->
+
+      <!-- Metric 2 -->
+      <div class="col-sm-2">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Total Donations in USD
+          </div>
+          <div class="chart-stage">
+            <div id="total-donations-nd"></div>
+          </div>
+        </div>
+      </div>
+      <!-- Metric 2 -->
+    </div>
+  {% endblock %}
