@@ -28,12 +28,12 @@ def quake_projects():
 
     # A constant that defines the record fields that we wish to retrieve.
     FIELDS = {
-        '_id': False, 'year': True, 'focal_depth': True,
-        'eq_primary': True, 'eq_mag_mw': True,
-        'eq_mag_ms': True, 'eq_mag_mb': True, 'country': True, 'location': True,
-        'latitude': True, 'longitude': True,
-        'total_deaths': True, 'total_injuries': True, 'total_houses_destroyed': True,
-        'total_houses_damaged': True
+        '_id': False, 'YEAR': True, 'FOCAL_DEPTH': True,
+        'EQ_PRIMARY': True, 'EQ_MAG_MW': True,
+        'EQ_MAG_MS': True, 'EQ_MAG_MB': True, 'COUNTRY': True, 'LOCATION': True,
+        'LATITUDE': True, 'LONGITUDE': True,
+        'TOTAL_DEATHS': True, 'TOTAL_INJURIES': True, 'TOTAL_HOUSES_DESTROYED': True,
+        'TOTAL_HOUSES_DAMAGED': True
     }
 
     # Open a connection to MongoDB using a with statement such that the
