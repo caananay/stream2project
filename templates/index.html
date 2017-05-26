@@ -17,91 +17,62 @@
           </div>
           <!-- Deaths Chart -->
 
-          <!-- Resources -->
-          <div class="col-sm-6">
+          <!-- Country -->
+          <div class="col-sm-12">
             <div class="chart-wrapper">
               <div class="chart-title">
-                Resources Type
+                Country
               </div>
               <div class="chart-stage">
-                <div id="resource-type-row-chart"></div>
+                <div id="country-chart"></div>
               </div>
             </div>
           </div>
-          <!-- Resources -->
+          <!-- Country -->
 
-          <!-- funding Pie -->
-          <div class="col-sm-6">
-            <div class="chart-wrapper">
-              <div class="chart-title">
-                Funding Status
+        </div>
+      </div>
+
+      <!-- Year -->
+      <div class="col-sm-4">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Year
+          </div>
+          <div class="chart-stage">
+            <div id="year-pie-chart"></div>
+          </div>
+        </div>
+      </div>
+      <!-- Year-->
+
+      <!-- Depth -->
+      <div class="col-sm-12">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Overview of Depth, Magnitude and resulting deaths
+          </div>
+          <div class="chart-stage">
+            <div id="total-chart"></div>
+          </div>
+        </div>
+      </div>
+      <!-- Depth -->
+
+    <!-- Earthquakes Table -->
+      <div class="col-sm-12">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Significant Quakes Table
+          </div>
+          <div class="chart-stage">
+
+              <div id="scroll-table" class="container">
+                <table id="sigQuake-table" class="table table-fixed"></table>
               </div>
-              <div class="chart-stage">
-                <div id="funding-chart"></div>
-              </div>
-            </div>
-          </div>
-          <!-- funding Pie -->
-        </div>
-      </div>
-
-      <!-- Poverty -->
-      <div class="col-sm-3">
-        <div class="chart-wrapper">
-          <div class="chart-title">
-            Poverty Level
-          </div>
-          <div class="chart-stage">
-            <div id="poverty-level-row-chart"></div>
           </div>
         </div>
       </div>
-      <!-- Poverty -->
-
-      <!-- menu select -->
-      <div class="col-sm-6">
-        <div class="chart-wrapper">
-          <div class="chart-title">
-            Donation State
-          </div>
-          <div class="chart-stage">
-            <div id="menu-select"></div>
-          </div>
-        </div>
-      </div>
-      <!-- menu select -->
-
-      <!-- Metric 1 -->
-      <div class="col-sm-2">
-        <div class="chart-wrapper">
-          <div class="chart-title">
-            Total Number of Donations
-          </div>
-          <div class="chart-stage" style="background: #33CC99;
-            position: relative;
-            font-size: 29px;
-            color: white;
-            vertical-align: middle;
-            text-align: center;
-            padding-top: 12px;
-            padding-bottom: 0px;">
-            <div id="number-projects-nd"></div>
-          </div>
-        </div>
-      </div>
-      <!-- Metric 1 -->
-
-      <!-- Metric 2 -->
-      <div class="col-sm-2">
-        <div class="chart-wrapper">
-          <div class="chart-title">
-            Total Donations in USD
-          </div>
-          <div class="chart-stage">
-            <div id="total-donations-nd"></div>
-          </div>
-        </div>
-      </div>
-      <!-- Metric 2 -->
+      <!-- Earthquakes Table -->
     </div>
   {% endblock %}
