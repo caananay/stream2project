@@ -2,36 +2,14 @@
     background-color: #985f0d;
 }
 
-/*div#scroll-table {*/
-    /*width: 150px;*/
-    /*height: 150px;*/
-    /*overflow-x: scroll;*/
-    /*overflow-y: scroll;*/
-/*}*/
+#deaths-bar-chart .x.axis text {
+    text-anchor: end !important;
+    transform: rotate(-45deg);
+}
 
-.table-fixed{
-  width: 100%;
-  background-color: #f3f3f3;
-  tbody{
-    height:200px;
-    overflow-y:auto;
-    width: 100%;
-    }
-  thead,tbody,tr,td,th{
-    display:block;
-  }
-  tbody{
-    td{
-      float:left;
-    }
-  }
-  thead {
-    tr{
-      th{
-        float:left;
-       background-color: #f39c12;
-       border-color:#e67e22;
-      }
-    }
-  }
+div#scroll-table {
+  clear:both;
+  /*overflow:auto;*/
+    overflow-x: scroll;
+    overflow-y: scroll;
 }
