@@ -1,95 +1,69 @@
 {% extends "layout.html"%}
 {% block content %}
-    <div class="row">
-      <!-- Deaths Chart -->
-      <div class="col-sm-12">
-        <div class="chart-wrapper">
-          <div class="chart-title">
-              <h5>Total Number of Deaths by Location</h5>
-          </div>
-          <div class="chart-stage">
-            <div id="deaths-bar-chart"></div>
-          </div>
-        </div>
-      </div>
-      <!-- Deaths Chart -->
 
-        <!-- injuries Chart -->
-     <div class="col-sm-12">
-        <div class="chart-wrapper">
-          <div class="chart-title">
-            <h5>Total Number of Injuries by Country</h5>
-          </div>
-          <div class="chart-stage">
-            <div id="map"></div>
-          </div>
+<div class="row">
+    <section class="col-sm-12">
+         <div class="jumbotron">
+            <h2>The Significant Earthquakes</h2>
+            <p class="nice">The data set used for the dashboard on this website is culled from the following database National Geophysical Data Center / World Data Service (NGDC/WDS): Significant Earthquake Database. National Geophysical Data Center, NOAA.<a href="http://dx.doi.org/10.7289/V5TD9V7K">doi:10.7289/V5TD9V7K</a> </p>
+            <p class="nice">The dashboard displays information on destructive earthquakes from 2006 to 2016 (with the exclusion of Haiti) that
+        meet at least one of the following criteria: 10 0r more deaths and Magnitude 7.5 or greater.</p>
         </div>
-      </div>
-      <!-- injuries Chart -->
-{#    </div>#}
-{#    <div class="row">#}
-          <!-- Country -->
-          <div class="col-sm-8">
-            <div class="chart-wrapper">
-              <div class="chart-title">
-                <h5>Earthquake count by Country</h5>
-              </div>
-              <div class="chart-stage">
-                <div id="country-chart"></div>
-              </div>
-            </div>
-          </div>
-          <!-- Country -->
+    </section>
 
-      <!-- Year -->
-      <div class="col-sm-4">
-        <div class="chart-wrapper">
-          <div class="chart-title">
-            <h5>Earthquake count by Year</h5>
-          </div>
-          <div class="chart-stage">
-            <div id="year-pie-chart"></div>
-          </div>
-        </div>
-      </div>
-      <!-- Year-->
-{#    </div>#}
+    <section class="col-sm-12">
+        <h2>The Dashboard Explained</h2>
+        <p class="nice">5 graphical charts and a table have been used to visualize the data set, these are</p>
+        <ul>
+            <li>A bar chart representing the total number of deaths by location name</li>
+            <li>A choropleth map of the world representing the total number of injuries by country. All the areas coloured light blue show counties where no earthquakes occurred. </li>
+            <li>A row chart representing earthquake count by country. This shows the country where an earthquake occurred and the number of times it occurred in the given timeframe of 2006 to 2016. </li>
+            <li>A pie chart showing the years between 2006 and 2016 an earthquake occurred and the count.</li>
+            <li>A bubble chart showing the relationship between the focal depth, primary magnitude and the total number of death.</li>
+            <li> A table showing all the relevant data for the earthquakes that occured within the period of 2006 and 2016.</li>
+        </ul>
+    </section>
 
-{#    <div class="row">#}
-      <!-- Depth -->
-      <div class="col-sm-12">
-        <div class="chart-wrapper">
-          <div class="chart-title">
-              <h5>Overview of Focal Depth, Magnitude and resulting deaths</h5>
-          </div>
-          <div class="chart-stage">
-            <div id="total-chart"></div>
-          </div>
-        </div>
-      </div>
-      <!-- Depth -->
-{#    </div>#}
+    <section class="col-sm-12">
+        <h2>Variable Definitions for the Significant Earthquakes</h2>
+        <dl class="dl-horizontal">
+            <dt>Country</dt>
+            <dd>The Country where the Earthquake occurred</dd>
 
-{#    <div class="row">#}
-    <!-- Earthquakes Table -->
-      <div class="col-sm-12">
-        <div class="chart-wrapper">
-          <div class="chart-title">
-              <h5>Significant Quakes Table</h5>
-          </div>
-          <div class="chart-stage">
+            <dt>Location Name</dt>
+            <dd>The Country, State, Province or City where the Earthquake occurred (For example enter: USA or California or San Francisco)</dd>
 
-              <div id="scroll-table">
-                <table id="sigQuake-table" class="table table-hover"></table>
-                    <div id="paging">
-                        Showing <span id="begin"></span>-<span id="end"></span> of <span id="size"></span>.
-                        <input id="last" class="btn" type="Button" value="Last"/>
-                        <input id="next" class="btn" type="button" value="Next" />
-                    </div>
-              </div>
-          </div>
-        </div>
-      </div>
-      <!-- Earthquakes Table -->
-    </div>
-  {% endblock %}
+            <dt>Focal Depth</dt>
+            <dd>The depth of the earthquake is given in kilometers.</dd>
+
+            <dt>EQ Primary</dt>
+            <dd>The Primary Magnitude of the Earthquake</dd>
+
+            <dt>MS Magnitude</dt>
+            <dd>The Ms magnitude is the surface-wave magnitude of the earthquake.
+
+    The magnitude is a measure of seismic energy. The magnitude scale is logarithmic. An increase of one in magnitude represents a tenfold increase in the recorded wave amplitude. However, the energy release associated with an increase of one in magnitude is not tenfold,
+                but about thirtyfold. For example, approximately 900 times more energy is released in an earthquake of magnitude 7 than in an earthquake of magnitude 5. Each increase in magnitude of one unit is equivalent to an increase of seismic
+                energy of about 1.6 x 10,000,000,000,000 ergs.</dd>
+
+            <dt>MB Magnitude</dt>
+            <dd>The Mb magnitude is the compressional body wave (P-wave) magnitude.
+
+    The magnitude is a measure of seismic energy. The magnitude scale is logarithmic. An increase of one in magnitude represents a tenfold increase in the recorded wave amplitude. However, the energy release associated with an increase of one in magnitude is not tenfold, but about thirtyfold. For example, approximately 900 times more energy is released in an earthquake of magnitude 7 than in an earthquake of magnitude 5. Each increase in magnitude of one unit is equivalent to an increase of seismic energy of about 1.6 x 10,000,000,000,000 ergs.
+
+    </dd>
+            <dt>Total Number of Deaths</dt>
+            <dd>Whenever possible, total number of deaths from the earthquake and secondary effects are listed. When references give different death tolls, each death toll and corresponding reference is listed as a separate record.</dd>
+
+            <dt>Total Number of Injuries</dt>
+            <dd>Whenever possible, numbers of injuries from the earthquake are listed.</dd>
+
+            <dt>Total Number of Houses Destroyed</dt>
+            <dd>Whenever possible, numbers of houses destroyed are listed.</dd>
+
+              <dt>Total Number of Houses Damaged</dt>
+            <dd>Whenever possible, numbers of houses Damaged are listed.</dd>
+        </dl>
+    </section>
+</div>
+{% endblock %}

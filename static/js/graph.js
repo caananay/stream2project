@@ -191,7 +191,7 @@ function makeGraphs(error, projectsJson, countryJson) {
         .radiusValueAccessor(function (d) {
             return d.value;
         })
-        .maxBubbleRelativeSize(0.05)
+        .maxBubbleRelativeSize(0.08)
         .yAxisLabel("EQ PRIMARY")
         .xAxisLabel("FOCAL DEPTH")
         .renderLabel(true)
@@ -228,12 +228,12 @@ function makeGraphs(error, projectsJson, countryJson) {
             }
             },
             {
-                label: "EQ MAG MB", format: function (d) {
+                label: "MB MAGNITUDE", format: function (d) {
                 return d.EQ_MAG_MB
             }
             },
             {
-                label: "EQ MAG MS", format: function (d) {
+                label: "MS MAGNITUDE", format: function (d) {
                 return d.EQ_MAG_MS
             }
             },

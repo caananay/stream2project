@@ -14,9 +14,16 @@ COLLECTION_NAME = 'project2'
 @app.route("/")
 def index():
     """
-    A Flask view to serve the main dashboard page.
+    A Flask view to serve the dashboard page.
     """
     return render_template("index.html")
+
+@app.route("/dashboard")
+def dashboard():
+    """
+    A Flask view to serve the home page.
+    """
+    return render_template("dashboard.html")
 
 
 @app.route("/earthquakes/project2")

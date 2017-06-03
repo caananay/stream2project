@@ -1,0 +1,95 @@
+{% extends "layout.html"%}
+{% block content %}
+    <div class="row">
+      <!-- Deaths Chart -->
+      <div class="col-sm-12">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+              <h5>Total Number of Deaths by Location</h5>
+          </div>
+          <div class="chart-stage">
+            <div id="deaths-bar-chart"></div>
+          </div>
+        </div>
+      </div>
+      <!-- Deaths Chart -->
+
+        <!-- injuries Chart -->
+     <div class="col-sm-12">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            <h5>Total Number of Injuries by Country</h5>
+          </div>
+          <div class="chart-stage">
+            <div id="map"></div>
+          </div>
+        </div>
+      </div>
+      <!-- injuries Chart -->
+{#    </div>#}
+{#    <div class="row">#}
+          <!-- Country -->
+          <div class="col-sm-8">
+            <div class="chart-wrapper">
+              <div class="chart-title">
+                <h5>Earthquake count by Country</h5>
+              </div>
+              <div class="chart-stage">
+                <div id="country-chart"></div>
+              </div>
+            </div>
+          </div>
+          <!-- Country -->
+
+      <!-- Year -->
+      <div class="col-sm-4">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            <h5>Earthquake count by Year</h5>
+          </div>
+          <div class="chart-stage">
+            <div id="year-pie-chart"></div>
+          </div>
+        </div>
+      </div>
+      <!-- Year-->
+{#    </div>#}
+
+{#    <div class="row">#}
+      <!-- Depth -->
+      <div class="col-sm-12">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+              <h5>Overview of Focal Depth, Magnitude and resulting deaths</h5>
+          </div>
+          <div class="chart-stage">
+            <div id="total-chart"></div>
+          </div>
+        </div>
+      </div>
+      <!-- Depth -->
+{#    </div>#}
+
+{#    <div class="row">#}
+    <!-- Earthquakes Table -->
+      <div class="col-sm-12">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+              <h5>Significant Quakes Table</h5>
+          </div>
+          <div class="chart-stage">
+
+              <div id="scroll-table">
+                <table id="sigQuake-table" class="table table-hover"></table>
+                    <div id="paging">
+                        Showing <span id="begin"></span>-<span id="end"></span> of <span id="size"></span>.
+                        <input id="last" class="btn" type="Button" value="Last"/>
+                        <input id="next" class="btn" type="button" value="Next" />
+                    </div>
+              </div>
+          </div>
+        </div>
+      </div>
+      <!-- Earthquakes Table -->
+    </div>
+  {% endblock %}
