@@ -1,20 +1,46 @@
-p .nice{
+p.nice{
     font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', sans-serif;
-    font-size: 14px;
+    font-size: 16px;
+    line-height:24px;
+}
+
+table.def {
+    font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', sans-serif;
+    font-size: 16px;
+    line-height:24px;
+}
+
+.table>tbody>tr>td:last-child, .table>thead>tr>th:last-child {
+    padding-left: 78px;
+    /*padding-bottom:15px;*/
+}
+
+
+/*.space{*/
+    /*width:70px;*/
+/*}*/
+
+button.reset{
+    display:inline-block;
 }
 
 .info {
     background-color: #985f0d;
 }
 
-#deaths-bar-chart .x.axis text {
-    text-anchor: end !important;
-    transform: rotate(-45deg);
+a.menu{
+    border: solid 1px #f2f2f2;
+    color: #449d44;
+    border-radius:4px;
 }
+/*#deaths-bar-chart .x.axis text {*/
+    /*text-anchor: end !important;*/
+    /*transform: rotate(-45deg);*/
+/*}*/
 
-div#scroll-table {
-  clear:both;
-  /*overflow:auto;*/
-    overflow-x: scroll;
-    overflow-y: scroll;
-}
+/*div#scroll-table {*/
+  /*clear:both;*/
+  /*!*overflow:auto;*!*/
+    /*overflow-x: scroll;*/
+    /*overflow-y: scroll;*/
+/*}*/

@@ -1,51 +1,66 @@
 {% extends "layout.html"%}
+
+ {% block navigation %}
+     <li><a class= "menu" href="./">Home</a></li>
+
+ {% endblock %}
+
+
 {% block content %}
+
     <div class="row">
+        <div class="col-sm-1">
+            <button class="intro_button btn btn-success" type="button" autofocus onclick="javascript:introJs().start();">Start Tour!</button>
+        </div>
       <!-- Deaths Chart -->
       <div class="col-sm-12">
-        <div class="chart-wrapper">
+        <div class="chart-wrapper" data-step="1" data-intro="The bar chart represents the total number of deaths by location name" style="font-weight: normal" data-position="right">
           <div class="chart-title">
               <h5>Total Number of Deaths by Location</h5>
+              <button id= "deathsBarChartReset" class="reset btn btn-primary btn-xs">reset</button>
           </div>
           <div class="chart-stage">
-            <div id="deaths-bar-chart"></div>
+               <div id="deaths-bar-chart"></div>
           </div>
         </div>
       </div>
       <!-- Deaths Chart -->
 
-        <!-- injuries Chart -->
+        <!-- injuries Map -->
      <div class="col-sm-12">
-        <div class="chart-wrapper">
+        <div class="chart-wrapper" data-step="2" data-intro="The choropleth map of the world represents the total number of injuries by country. All the areas coloured light blue show counties where no earthquakes occurred." style="font-weight: normal" data-position="right">
           <div class="chart-title">
             <h5>Total Number of Injuries by Country</h5>
+              <button id= "mapReset" class="reset btn btn-primary btn-xs">reset</button>
           </div>
           <div class="chart-stage">
             <div id="map"></div>
           </div>
         </div>
       </div>
-      <!-- injuries Chart -->
-{#    </div>#}
-{#    <div class="row">#}
-          <!-- Country -->
-          <div class="col-sm-8">
-            <div class="chart-wrapper">
-              <div class="chart-title">
-                <h5>Earthquake count by Country</h5>
-              </div>
-              <div class="chart-stage">
-                <div id="country-chart"></div>
-              </div>
-            </div>
+      <!-- injuries Map -->
+
+      <!-- Country -->
+      <div class="col-sm-8">
+        <div class="chart-wrapper" data-step="3" data-intro="The row chart represents earthquake count by country. This shows the country where an earthquake occurred and the number of times it occurred in the given timeframe of 2006 to 2016." style="font-weight: normal" data-position="right">
+          <div class="chart-title">
+            <h5>Earthquake count by Country</h5>
+              <button id= "countryChartReset" class="reset btn btn-primary btn-xs">reset</button>
           </div>
-          <!-- Country -->
+          <div class="chart-stage">
+            <div id="country-chart"></div>
+          </div>
+        </div>
+      </div>
+      <!-- Country -->
 
       <!-- Year -->
       <div class="col-sm-4">
-        <div class="chart-wrapper">
+        <div class="chart-wrapper" data-step="4" data-intro="The pie chart shows the years between 2006 and 2016 an earthquake occurred and the count." style="font-weight: normal" data-position="right">
           <div class="chart-title">
             <h5>Earthquake count by Year</h5>
+              <button id= "pieChartReset" class="reset btn btn-primary btn-xs">reset</button>
+
           </div>
           <div class="chart-stage">
             <div id="year-pie-chart"></div>
@@ -53,14 +68,14 @@
         </div>
       </div>
       <!-- Year-->
-{#    </div>#}
 
-{#    <div class="row">#}
       <!-- Depth -->
       <div class="col-sm-12">
-        <div class="chart-wrapper">
+        <div class="chart-wrapper" data-step="5" data-intro="The bubble chart shows the relationship between the focal depth, primary magnitude and the total number of death." style="font-weight: normal" data-position="right">
           <div class="chart-title">
               <h5>Overview of Focal Depth, Magnitude and resulting deaths</h5>
+              <button id= "bubbleChartReset" class="reset btn btn-primary btn-xs">reset</button>
+
           </div>
           <div class="chart-stage">
             <div id="total-chart"></div>
@@ -68,23 +83,22 @@
         </div>
       </div>
       <!-- Depth -->
-{#    </div>#}
 
-{#    <div class="row">#}
     <!-- Earthquakes Table -->
       <div class="col-sm-12">
-        <div class="chart-wrapper">
+        <div class="chart-wrapper" data-step="6" data-intro="The table shows all the relevant data for the earthquakes that occured within the period of 2006 and 2016." style="font-weight: normal" data-position="right">
           <div class="chart-title">
               <h5>Significant Quakes Table</h5>
           </div>
           <div class="chart-stage">
 
               <div id="scroll-table">
+                  <div class="dc-data-count"></div>
                 <table id="sigQuake-table" class="table table-hover"></table>
                     <div id="paging">
                         Showing <span id="begin"></span>-<span id="end"></span> of <span id="size"></span>.
                         <input id="last" class="btn" type="Button" value="Last"/>
-                        <input id="next" class="btn" type="button" value="Next" />
+                        <input id="next" class="btn" type="button" value="Next"/>
                     </div>
               </div>
           </div>

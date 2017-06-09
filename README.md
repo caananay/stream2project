@@ -38,4 +38,4 @@ The project was deployed using Heroku.
 
 
 
-* Haiti, Japan: Honshu, China: Sichuan were excluded from the charts because it threw the scale of the chart off-balance and made other countries with fewer casualties less visible on the chart. Haiti's earthquake resulted in over 300,000 deaths.
+* Haiti, Japan: Honshu, China: Sichuan were excluded from the charts because it threw the scale of the chart off-balance and made other countries with fewer casualties less visible on the bar chart. Haiti's earthquake resulted in over 300,000 deaths.

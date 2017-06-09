@@ -8,18 +8,25 @@ function makeGraphs(error, projectsJson, countryJson) {
 
     //Clean projectsJson data
     var sigQuakesProjects = projectsJson;
-    // var dateFormat = d3.time.format("%Y-%m-%d %H:%M:%S");
+
     sigQuakesProjects.forEach(function (d) {
-        // d["date_posted"] = dateFormat.parse(d["date_posted"]);
-        // d["date_posted"].setDate(1);
+
         d["TOTAL_DEATHS"] = +d["TOTAL_DEATHS"];
     });
 
     //Create a Crossfilter instance
     var ndx = crossfilter(sigQuakesProjects);
+    var all = ndx.groupAll();
+
+    dc.dataCount(".dc-data-count")
+        .dimension(ndx)
+        .group(all)
+        .html({
+            some:'<strong>%filter-count</strong> selected out of <strong>%total-count</strong> records | <a href="\javascript:dc.filterAll(); dc.renderAll();\">Reset All</a>',
+            all: 'All records selected. Please click on a graph to apply filters.'
+        });
 
     //Define Dimensions
-
 
     var focalDepthDim = ndx.dimension(function (d) {
         return d["FOCAL_DEPTH"];
@@ -27,16 +34,7 @@ function makeGraphs(error, projectsJson, countryJson) {
     var eqPrimaryDim = ndx.dimension(function (d) {
         return d["EQ_PRIMARY"];
     });
-    // var eqMagMwDim = ndx.dimension(function (d) {
-    //     return d["EQ_MAG_MW"];
-    // });
-    //
-    //  var eqMagMsDim = ndx.dimension(function (d) {
-    //     return d["EQ_MAG_MS"];
-    // });
-    // var eqMagMbDim = ndx.dimension(function (d) {
-    //     return d["EQ_MAG_MB"];
-    // });
+
     var locationDim = ndx.dimension(function (d) {
         return d["LOCATION_NAME"];
     });
@@ -47,39 +45,24 @@ function makeGraphs(error, projectsJson, countryJson) {
     var totalDeathsDim = ndx.dimension(function (d) {
         return d["TOTAL_DEATHS"];
     });
-    // var totalInjuriesDim = ndx.dimension(function (d) {
-    //     return d["TOTAL_INJURIES"];
-    // });
 
-    // var minInjuries = totalInjuriesDim.bottom(1)[0].TOTAL_INJURIES;
-    //  var maxInjuries = totalDeathsDim.top(1)[0].TOTAL_INJURIES;
-    //var totalHousesDestroyedDim = ndx.dimension(function (d) {
-    //     return d["TOTAL_HOUSES_DESTROYED"];
-    // });
-    // var totalHousesDamagedDim = ndx.dimension(function (d) {
-    //     return d["TOTAL_HOUSES_DAMAGED"];
-    // });
 
 //Calculate metrics
-    //var totalDeaths = totalDeathsDim.group();
+
     var countryDim = ndx.dimension(function (d) {
         return d["COUNTRY"];
     });
-    // var deathsByCountry = countryDim.group().reduceSum(function (d) {
-    //      return d["TOTAL_DEATHS"];
-    //  });
+
     var deathsByLocation = locationDim.group().reduceSum(function (d) {
         return d["TOTAL_DEATHS"];
     });
     var allLocations = sigQuakesProjects.map(d => d['LOCATION_NAME']);
     var uniqueLocations = Array.from(new Set(allLocations)).sort();
-    // var locationGroup = locationDim.group();
+
 
     //Bar Charts
     var deathBarChart = dc.barChart("#deaths-bar-chart");
 
-    //  var allCountries = sigQuakesProjects.map(d => d['COUNTRY']);
-    // var uniqueCountries = Array.from(new Set(allCountries)).sort();
 
     //row chart country
     var countryGroup = countryDim.group();
@@ -109,15 +92,6 @@ function makeGraphs(error, projectsJson, countryJson) {
             return d.properties.name;
         });
 
-    // dc.lineChart("#injuries-bar-chart")
-    //     .width(800)
-    //     .height(200)
-    //     .margins({top: 10, right: 0, bottom: 30, left: 40})
-    //     .dimension(eqMagMsDim)
-    //     .group(totalInjuriesGroup)
-    //     .legend(dc.legend().x(500).y(5).gap(5))
-    //     .x(d3.scale.linear().domain([0,10]));
-
     deathBarChart
         .width(800)
         .height(200)
@@ -125,17 +99,9 @@ function makeGraphs(error, projectsJson, countryJson) {
         .dimension(locationDim)
         .group(deathsByLocation)
         .x(d3.scale.ordinal().domain(uniqueLocations))
-        // .dimension(countryDim)
-        // .group(deathsByCountry)
-        //.x(d3.scale.ordinal().domain(uniqueCountries))
         .xUnits(dc.units.ordinal)
         .xAxis().tickValues([]);
-    // .renderlet(function(chart){
-    //  var colors =d3.scale.ordinal().domain([uniqueLocations])
-    //      .range(["steelblue", "brown", "red", "green", "yellow", "grey"]);
-    //  chart.selectAll('rect.bar').each(function(d){
-    //       d3.select(this).attr("style", "fill: " + colors(d.key)); // use key accessor if you are using a custom accessor
-    //  });
+
 
     pieChart
         .height(300)
@@ -148,13 +114,11 @@ function makeGraphs(error, projectsJson, countryJson) {
     countryChart
         .height(300)
         .width(600)
-        //.transitionDuration(1500)
-        //.innerRadius(50)
         .dimension(countryDim)
         .group(countryGroup)
         .x(d3.scale.linear().domain([0, 50]))
         .elasticX(true);
-    //.legend(dc.legend());
+
 
     var bubbleDim = ndx.dimension(function (d) {
         return [d.FOCAL_DEPTH, d.EQ_PRIMARY, d.COUNTRY];
@@ -204,6 +168,7 @@ function makeGraphs(error, projectsJson, countryJson) {
         .y(d3.scale.linear().domain([minMag, maxMag]))
         .x(d3.scale.linear().domain([minDepth, maxDepth]));
     bubble.yAxis().ticks(8);
+
 
     tableChart
         .width(800)
@@ -259,14 +224,16 @@ function makeGraphs(error, projectsJson, countryJson) {
             }])
         .on("renderlet", function (table) {
             table.selectAll('.dc-table-group').classed('info', true);
+            setTimeout(update, 100); //we need to wait for the table to load before the update function can be applied.
         })
-        .size(Infinity)
+
+       .size(Infinity)
         .sortBy(function (d) {
         return d["YEAR"];
         })
         .order(d3.ascending);
 
-    update();
+
     dc.renderAll();
 
 
@@ -278,31 +245,51 @@ var pageSize = 15;
       d3.select('#begin')
           .text(pageOffset);
       d3.select('#end')
-          .text(pageOffset+(pageSize-1));
+          .text(pageOffset+(pageSize-1));//<=all.value() ? 'true' : pageSize=all.value());
       d3.select('#last')
           .attr('disabled', pageOffset-pageSize<0 ? 'true' : null);
       d3.select('#next')
-          .attr('disabled', pageOffset+pageSize>=ndx.size() ? 'true' : null);
-      d3.select('#size').text(ndx.size());
+          .attr('disabled', pageOffset+pageSize>=all.value() ? 'true' : null);
+      d3.select('#size').text(all.value());
   }
   function update() {
       tableChart.beginSlice(pageOffset);
       tableChart.endSlice(pageOffset+pageSize);
       display();
+      tableChart.redraw();
   }
   function next() {
       pageOffset += pageSize;
       update();
-      tableChart.redraw();
+     // tableChart.redraw();
   }
   function last() {
       pageOffset -= pageSize;
       update();
-      tableChart.redraw();
+      //   tableChart.redraw();
   }
+    document.getElementById('pieChartReset').onclick = function () {
+      pieChart.filterAll();
+      dc.redrawAll();
+  };
+   document.getElementById('bubbleChartReset').onclick = function () {
+      bubble.filterAll();
+      dc.redrawAll();
+  };
+     document.getElementById('deathsBarChartReset').onclick = function () {
+      deathBarChart.filterAll();
+      dc.redrawAll();
+  };
+       document.getElementById('mapReset').onclick = function () {
+      worldChart.filterAll();
+      dc.redrawAll();
+  };
+      document.getElementById('countryChartReset').onclick = function () {
+      countryChart.filterAll();
+      dc.redrawAll();
+  };
 
-  document.getElementById('last').onclick = last;
+document.getElementById('last').onclick = last;
   document.getElementById('next').onclick = next;
-
 
 }
