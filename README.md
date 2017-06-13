@@ -35,7 +35,13 @@ The website was designed using the following technologies:
 
 The project was deployed using Heroku.
 
+NOTE:
 
+when importing the earthquakes data from the csv file, use the mongodb shell command below to change Total_deaths to a number variable,
+otherwise the dashboard won't load any data when run
+
+db.project2.find({TOTAL_DEATHS : {$exists : true}}).forEach( function(obj)
+ { obj.TOTAL_DEATHS = new NumberInt( obj.TOTAL_DEATHS ); db.project2.save(obj); } );
 
 
 * Haiti, Japan: Honshu, China: Sichuan were excluded from the charts because it threw the scale of the chart off-balance and made other countries with fewer casualties less visible on the bar chart. Haiti's earthquake resulted in over 300,000 deaths.

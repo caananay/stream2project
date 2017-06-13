@@ -55,6 +55,6 @@ def quake_projects():
         return json.dumps(list(projects))
 
 
-#
-# if __name__ == "__main__":
-#     app.run(debug=True)
+
+if __name__ == "__main__":
+    app.run(debug=True)

@@ -245,7 +245,7 @@ var pageSize = 15;
       d3.select('#begin')
           .text(pageOffset);
       d3.select('#end')
-          .text(pageOffset+(pageSize-1));//<=all.value() ? 'true' : pageSize=all.value());
+          .text(pageSize > all.value() ? all.value() : pageOffset+(pageSize -1));
       d3.select('#last')
           .attr('disabled', pageOffset-pageSize<0 ? 'true' : null);
       d3.select('#next')
@@ -255,6 +255,10 @@ var pageSize = 15;
   function update() {
       tableChart.beginSlice(pageOffset);
       tableChart.endSlice(pageOffset+pageSize);
+      if (all.value() < pageSize){
+          pageOffset = 0;
+      }
+
       display();
       tableChart.redraw();
   }

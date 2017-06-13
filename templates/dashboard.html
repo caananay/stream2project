@@ -107,3 +107,12 @@
       <!-- Earthquakes Table -->
     </div>
   {% endblock %}
+{% block additionalScripts  %}
+  <script src="{{ url_for ('static', filename='lib/js/crossfilter.js')}}"></script>
+  <script src="{{ url_for ('static', filename='lib/js/d3.js')}}"></script>
+  <script src="{{ url_for ('static', filename='lib/js/dc.js')}}"></script>
+  <script src="{{ url_for ('static', filename='lib/js/queue.js')}}"></script>
+  <script src="{{ url_for ('static', filename='lib/js/keen.min.js')}}"></script>
+   <script src="{{ url_for ('static', filename='lib/js/intro.js')}}"></script>
+  <script src="{{ url_for ('static', filename='js/graph.js')}}"></script>
+{% endblock %}
