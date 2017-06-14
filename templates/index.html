@@ -10,7 +10,7 @@
 
 <div class="row">
     <section class="col-sm-12">
-         <div class="jumbotron">
+         <div class="top-container">
             <h2>Significant Earthquakes</h2>
             <p class="nice">The data set used for the dashboard on this website is culled from the following database National Geophysical Data Center / World Data Service (NGDC/WDS): Significant Earthquake Database. National Geophysical Data Center, NOAA.<a href="http://dx.doi.org/10.7289/V5TD9V7K">doi:10.7289/V5TD9V7K</a> </p>
             <p class="nice">The dashboard displays information on destructive earthquakes from 2006 to 2016 (with the exclusion of Haiti) that
@@ -18,108 +18,125 @@
         </div>
     </section>
     <section class="col-sm-12">
-        <h2>The Dashboard Explained</h2>
-        <p class="nice">There are 5 graphical charts and a table have been used to visualize the data set, these are</p>
+        <div class="top-container">
+            <h2>The Dashboard Explained</h2>
+            <p class="nice">There are 5 graphical charts and a table have been used to visualize the data set, these are listed below:</p>
+        </div>
     </section>
     <section class="col-sm-6 col-md-4">
-        <img class="img-thumbnail img-responsive" src="/static/images/barchart.png">
-        <h3>Bar Chart</h3>
-        <p class="nice">The bar chart represents the total number of deaths by location name</p>
+        <div class="sub-container">
+            <img class="img-thumbnail img-responsive" src="/static/images/barchart.png">
+            <h3>Bar Chart</h3>
+            <p class="nice">The bar chart represents the total number of deaths that occurred in various locations.</p>
+            <br><br>
+        </div>
     </section>
 
      <section class="col-sm-6 col-md-4">
-        <img class="img-thumbnail img-responsive" src="/static/images/map.png">
-        <h3>Choropleth Map</h3>
-        <p class="nice">The choropleth map of the world represents the total number of injuries by country. All the areas coloured light blue show counties where no earthquakes occurred.</p>
+         <div class="sub-container">
+            <img class="img-thumbnail img-responsive" src="/static/images/map.png">
+            <h3>Choropleth Map</h3>
+            <p class="nice">The choropleth map of the world represents the total number of injuries by country. All the areas coloured light blue show counties where no earthquakes occurred.</p>
+         </div>
     </section>
 
     <section class="col-sm-6 col-md-4">
-        <img class="img-thumbnail img-responsive" src="/static/images/rowchart.jpeg">
-        <h3>Row Chart</h3>
-        <p class="nice">The row chart represents earthquake count by country. This shows the country where an earthquake occurred and the number of times it occurred in the given timeframe of 2006 to 2016.</p>
-     </section>
+        <div class="sub-container">
+            <img class="img-thumbnail img-responsive" src="/static/images/rowchart.jpeg">
+            <h3>Row Chart</h3>
+            <p class="nice">The row chart represents earthquake count by country. This shows the country where an earthquake occurred and the number of times it occurred in the given time frame.</p>
+        </div>
+    </section>
 
 
      <section class="col-sm-6 col-md-4">
-        <img class="img-thumbnail img-responsive" src="/static/images/bubblechart.png">
-        <h3>Bubble Chart</h3>
-        <p class="nice">The bubble chart shows the relationship between the focal depth, primary magnitude and the total number of death.</p>
+         <div class="sub-container">
+             <img class="img-thumbnail img-responsive" src="/static/images/bubblechart.png">
+             <h3>Bubble Chart</h3>
+             <p class="nice">The bubble chart shows the relationship between the focal depth, primary magnitude and the total number of death.</p>
+         </div>
     </section>
 <div class="clearfix visible-sm-block"></div>
      <section class="col-sm-6 col-md-4">
-        <img class="img-thumbnail img-responsive" src="/static/images/piechart.jpeg">
-        <h3>Pie Chart</h3>
-        <p class="nice">The pie chart shows the years between 2006 and 2016 an earthquake occurred and the count.</p>
+         <div class="sub-container">
+            <img class="img-thumbnail img-responsive" src="/static/images/piechart.jpeg">
+            <h3>Pie Chart</h3>
+            <p class="nice">The pie chart shows the years between 2006 and 2016 an earthquake occurred and the count.</p>
+         </div>
     </section>
 
     <section class="col-sm-6 col-md-4">
-        <img class="img-thumbnail img-responsive" src="/static/images/table.png">
-        <h3>Data Table</h3>
-        <p class="nice">The table shows all the relevant data for the earthquakes that occured within the period of 2006 and 2016.</p>
+        <div class="sub-container">
+            <img class="img-thumbnail img-responsive" src="/static/images/table.png">
+            <h3>Data Table</h3>
+            <p class="nice">The table shows all the relevant data for the earthquakes that occured within the period of 2006 and 2016.</p>
+        </div>
      </section>
 
     <section class="col-sm-12 table-responsive">
-        <h2>Variable Definitions for the Significant Earthquakes</h2>
-        <table class="def table">
-            <thead>
-                 <tr>
-                    <th>Variables</th>
-                    <th>Definitions</th>
-                 </tr>
-            </thead>
-            <tbody>
+        <div class="table-container">
+            <h2>Variable Definitions for the Significant Earthquakes</h2>
+            <table class="def table">
+                <thead>
+                     <tr>
+                        <th>Variables</th>
+                        <th>Definitions</th>
+                     </tr>
+                </thead>
+                <tbody>
 
-                <tr>
-                    <td>Country</td>
-                    <td>The Country where the Earthquake occurred</td>
-                </tr>
-                <tr>
-                    <td>Location Name</td>
-                    <td>The Country, State, Province or City where the Earthquake occurred (For example enter: USA or California or San Francisco)</td>
-                </tr>
-                <tr>
-                     <td>Focal Depth</td>
-                    <td>The depth of the earthquake is given in kilometers.</td>
-                </tr>
-                <tr>
-                    <td>EQ Primary</td>
-                    <td>The Primary Magnitude of the Earthquake</td>
-                </tr>
-                <tr>
-                     <td>MS Magnitude</td>
-                    <td>The Ms magnitude is the surface-wave magnitude of the earthquake.
+                    <tr>
+                        <td>Country</td>
+                        <td>The Country where the Earthquake occurred</td>
+                    </tr>
+                    <tr>
+                        <td>Location Name</td>
+                        <td>The Country, State, Province or City where the Earthquake occurred (For example enter: USA or California or San Francisco)</td>
+                    </tr>
+                    <tr>
+                         <td>Focal Depth</td>
+                        <td>The depth of the earthquake is given in kilometers.</td>
+                    </tr>
+                    <tr>
+                        <td>EQ Primary</td>
+                        <td>The Primary Magnitude of the Earthquake</td>
+                    </tr>
+                    <tr>
+                         <td>MS Magnitude</td>
+                        <td>The Ms magnitude is the surface-wave magnitude of the earthquake.
 
-            The magnitude is a measure of seismic energy. The magnitude scale is logarithmic. An increase of one in magnitude represents a tenfold increase in the recorded wave amplitude. However, the energy release associated with an increase of one in magnitude is not tenfold,
-                        but about thirtyfold. For example, approximately 900 times more energy is released in an earthquake of magnitude 7 than in an earthquake of magnitude 5. Each increase in magnitude of one unit is equivalent to an increase of seismic
-                        energy of about 1.6 x 10,000,000,000,000 ergs.</td>
-                </tr>
-                <tr>
-                      <td>MB Magnitude</td>
-                    <td>The Mb magnitude is the compressional body wave (P-wave) magnitude.
+                The magnitude is a measure of seismic energy. The magnitude scale is logarithmic. An increase of one in magnitude represents a tenfold increase in the recorded wave amplitude. However, the energy release associated with an increase of one in magnitude is not tenfold,
+                            but about thirtyfold. For example, approximately 900 times more energy is released in an earthquake of magnitude 7 than in an earthquake of magnitude 5. Each increase in magnitude of one unit is equivalent to an increase of seismic
+                            energy of about 1.6 x 10,000,000,000,000 ergs.</td>
+                    </tr>
+                    <tr>
+                          <td>MB Magnitude</td>
+                        <td>The Mb magnitude is the compressional body wave (P-wave) magnitude.
 
-            The magnitude is a measure of seismic energy. The magnitude scale is logarithmic. An increase of one in magnitude represents a tenfold increase in the recorded wave amplitude. However, the energy release associated with an increase of one in magnitude is not tenfold, but about thirtyfold. For example, approximately 900 times more energy is released in an earthquake of magnitude 7 than in an earthquake of magnitude 5. Each increase in magnitude of one unit is equivalent to an increase of seismic energy of about 1.6 x 10,000,000,000,000 ergs.
+                The magnitude is a measure of seismic energy. The magnitude scale is logarithmic. An increase of one in magnitude represents a tenfold increase in the recorded wave amplitude. However, the energy release associated with an increase of one in magnitude is not tenfold, but about thirtyfold. For example, approximately 900 times more energy is released in an earthquake of magnitude 7 than in an earthquake of magnitude 5. Each increase in magnitude of one unit is equivalent to an increase of seismic energy of about 1.6 x 10,000,000,000,000 ergs.
 
-            </td>
-                </tr>
-                <tr>
-                     <td>Total Number of Deaths</td>
-                    <td>Whenever possible, total number of deaths from the earthquake and secondary effects are listed. When references give different death tolls, each death toll and corresponding reference is listed as a separate record.</td>
+                </td>
+                    </tr>
+                    <tr>
+                         <td>Total Number of Deaths</td>
+                        <td>Whenever possible, total number of deaths from the earthquake and secondary effects are listed. When references give different death tolls, each death toll and corresponding reference is listed as a separate record.</td>
 
-                </tr>
-                <tr>
-                     <td>Total Number of Injuries</td>
-                    <td>Whenever possible, numbers of injuries from the earthquake are listed.</td>
-                </tr>
-                <tr>
-                    <td>Total Number of Houses Destroyed</td>
-                    <td>Whenever possible, numbers of houses destroyed are listed.</td>
-                </tr>
-                <tr>
-                    <td>Total Number of Houses Damaged</td>
-                    <td>Whenever possible, numbers of houses Damaged are listed.</td>
-                </tr>
-            </tbody>
-        </table>
+                    </tr>
+                    <tr>
+                         <td>Total Number of Injuries</td>
+                        <td>Whenever possible, numbers of injuries from the earthquake are listed.</td>
+                    </tr>
+                    <tr>
+                        <td>Total Number of Houses Destroyed</td>
+                        <td>Whenever possible, numbers of houses destroyed are listed.</td>
+                    </tr>
+                    <tr>
+                        <td>Total Number of Houses Damaged</td>
+                        <td>Whenever possible, numbers of houses Damaged are listed.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </section>
 </div>
 {% endblock %}
