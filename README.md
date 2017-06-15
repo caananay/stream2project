@@ -1,3 +1,5 @@
+ABOUT THE PROJECT:
+
 The Significant earthquakes dashboard is a graphical visualisation of earthquakes that occurred within the period of 2006 to 2016.
 It uses various kinds of charts (bar chart, row chart, pie chart, choropleth map, bubble chart and a data table) to show at a glance where and when
 the earthquake occurred, the total number of deaths and injuries that resulted from the earthquake, the total number of houses damaged and destroyed by the earthquake and
@@ -19,6 +21,8 @@ On the other hand the dashboard page displays a graphical representation of the 
  - A pie chart showing the years between 2006 and 2016 an earthquake occurred and the count.
  - A table showing all the relevant data for the earthquakes that occurred within the period of 2006 and 2016.</p>
 
+TECHNOLOGIES USED:
+
 The website was designed using the following technologies:
 
  - Bootstrap and CSS: this was used for the page layout design, look and feel of the website.
@@ -31,17 +35,28 @@ The website was designed using the following technologies:
  - HTML: is used to build the webpages
  - Flask: is a microframework for Python and is used in this project as a development server and debugger
 
- A third party code was used for the data table pagination (culled from https://github.com/dc-js/dc.js/blob/master/web/examples/table-pagination.html) with a few minor changes made to the variable names.
+CREDITS:
+
+A third party code was used for the data table pagination (culled from https://github.com/dc-js/dc.js/blob/master/web/examples/table-pagination.html) with a few minor changes made to the variable names.
+Dataset used sourced from <a href="http://dx.doi.org/10.7289/V5TD9V7K">doi:10.7289/V5TD9V7K</a>
+
+TESTING:
+
+The application was tested manually on the following internet browsers Chrome, IE and Firefox using inspect to debug any errors on the code. The application was also tested on the following
+mobile devices ipad and an andriod mobile phone for responsiveness.
+
+DEPLOYMENT:
 
 The project was deployed using Heroku.
 
 NOTE:
 
-when importing the earthquakes data from the csv file, use the mongodb shell command below to change Total_deaths to a number variable,
+when importing the earthquakes data from the results.csv file, use the mongodb shell command below to change Total_deaths to a number variable,
 otherwise the dashboard won't load any data when run
 
 db.project2.find({TOTAL_DEATHS : {$exists : true}}).forEach( function(obj)
  { obj.TOTAL_DEATHS = new NumberInt( obj.TOTAL_DEATHS ); db.project2.save(obj); } );
 
+EXCLUSIONS FROM THE DATASET:
 
 * Haiti, Japan: Honshu, China: Sichuan were excluded from the charts because it threw the scale of the chart off-balance and made other countries with fewer casualties less visible on the bar chart. Haiti's earthquake resulted in over 300,000 deaths.
