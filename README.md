@@ -37,12 +37,12 @@ The website was designed using the following technologies:
 
 CREDITS:
 
-A third party code was used for the data table pagination (culled from https://github.com/dc-js/dc.js/blob/master/web/examples/table-pagination.html) with a few minor changes made to the variable names.
+A third party code was used for the data table pagination, some changes were made to the code to enable it work properly with my code (culled from https://github.com/dc-js/dc.js/blob/master/web/examples/table-pagination.html) with a few minor changes made to the variable names.
 Dataset used sourced from <a href="http://dx.doi.org/10.7289/V5TD9V7K">doi:10.7289/V5TD9V7K</a>
 
 TESTING:
 
-The application was tested manually on the following internet browsers Chrome, IE and Firefox using inspect to debug any errors on the code. The application was also tested on the following
+The application was tested manually on the following internet browsers Chrome, safari, IE and Firefox using inspect to debug any errors on the code. The application was also tested on the following
 mobile devices ipad and an andriod mobile phone for responsiveness.
 
 DEPLOYMENT:

@@ -77,13 +77,32 @@ function makeGraphs(error, projectsJson, countryJson) {
     });
     var yearGroup = yearDim.group();
 
-    var countryChart = dc.rowChart("#country-chart");
+   var countryChart = dc.rowChart("#country-chart");
     var pieChart = dc.pieChart("#year-pie-chart");
      var tableChart = dc.dataTable("#sigQuake-table");
     var worldChart = dc.geoChoroplethChart("#map");
 
+    //chart with variable definitions
+    var chartWidth = $("#resizeChart").width();
+   var rowWidth = $("#resizeRow").width();
+ if(chartWidth >= 480){
+            rowSize = rowWidth;
+        } else {
+            rowSize = rowWidth * 0.3;
+        }
+
+
+        if(chartWidth >= 480){
+            mapSize =chartWidth;
+            mapHeight=chartWidth*0.43;
+        } else {
+            mapSize=chartWidth;
+              mapHeight=chartWidth*0.7;
+        }
+
+    //draw charts
     worldChart
-        .width(1360)
+        .width(mapSize)
         .height(500)
         .dimension(countryDim)
         .projection(d3.geo.equirectangular())
@@ -93,7 +112,7 @@ function makeGraphs(error, projectsJson, countryJson) {
         });
 
     deathBarChart
-        .width(800)
+        .width(chartWidth)
         .height(200)
         .margins({top: 10, right: 0, bottom: 30, left: 40})
         .dimension(locationDim)
@@ -113,7 +132,7 @@ function makeGraphs(error, projectsJson, countryJson) {
 
     countryChart
         .height(300)
-        .width(600)
+        .width(rowSize)
         .dimension(countryDim)
         .group(countryGroup)
         .x(d3.scale.linear().domain([0, 50]))
@@ -137,7 +156,7 @@ function makeGraphs(error, projectsJson, countryJson) {
     var maxDeath = totalDeathsDim.top(1)[0].TOTAL_DEATHS;
 
     var bubble = dc.bubbleChart("#total-chart")
-        .width(800)
+        .width(chartWidth)
         .height(300)
         .margins({top: 10, right: 50, bottom: 30, left: 50})
         .dimension(bubbleDim)
@@ -233,6 +252,52 @@ function makeGraphs(error, projectsJson, countryJson) {
         })
         .order(d3.ascending);
 
+
+
+    // Make charts responsive
+    $(window).resize(function() {
+        // Recalculate chart size
+        var chartWidth = $("#resizeChart").width();
+       var rowWidth = $("#resizeRow").width();
+
+  if(chartWidth >= 480){
+            rowSize = rowWidth;
+        } else {
+            rowSize = rowWidth * 0.3;
+        }
+
+
+          if(chartWidth >= 480){
+            mapSize =chartWidth;
+              mapHeight=chartWidth*0.43;
+        } else {
+            mapSize=chartWidth;
+              mapHeight=chartWidth*0.7;
+        }
+
+        // Set new values and redraw charts
+
+        bubble
+            .width(chartWidth)
+            .rescale()
+            .redraw();
+
+        deathBarChart
+            .width(chartWidth)
+            .rescale()
+            .redraw();
+
+        countryChart
+            .width(rowWidth)
+            .redraw();
+
+          worldChart
+           .width(mapSize)
+              .height(mapHeight)
+            .projection(d3.geo.equirectangular().scale(Math.min(mapSize*0.15)).translate([mapSize/2, mapHeight/2]))
+            .redraw();
+
+    });
 
     dc.renderAll();
 
