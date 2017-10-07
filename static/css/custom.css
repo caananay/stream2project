@@ -1,4 +1,4 @@
-@media screen and (max-width: 765px) {
+@media screen and (max-width: 768px) {
     body.application {
         padding-top: 120px;
     }
@@ -9,13 +9,16 @@ body.application {
     background-attachment: fixed;
 }
 
+.dc-chart .deselected circle {
+    fill: rgba(130,89,89,0.58);
+}
+
 .chart-wrapper{
     background-color: rgba(215,215,215,0.9);
 }
 
 .top-container {
     background-color: rgba(215, 215, 215, 0.9);
-    border-radius: 2%;
     padding-left:15px;
 }
 
@@ -24,9 +27,11 @@ body.application {
     font-size: 10px;
     cursor: crosshair;
 }
+
 .space{
     margin-bottom:10px;
 }
+
 .sub-container{
     background-color: rgba(215,215,215,0.9);
     border-radius: 2%;
@@ -39,9 +44,7 @@ body.application {
     border-radius: 2%;
     padding-left:15px;
 }
-/*.opc-container{*/
-    /*opacity: 0.8;*/
-/*}*/
+
 p.nice{
     font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', sans-serif;
     font-size: 16px;
@@ -56,13 +59,7 @@ table.def {
 
 .table>tbody>tr>td:last-child, .table>thead>tr>th:last-child {
     padding-left: 78px;
-    /*padding-bottom:15px;*/
 }
-
-
-/*.space{*/
-    /*width:70px;*/
-/*}*/
 
 button.reset{
     display:inline-block;
@@ -77,10 +74,11 @@ a.menu{
     color: #449d44;
     border-radius:4px;
 }
-/*#deaths-bar-chart .x.axis text {*/
-    /*text-anchor: end !important;*/
-    /*transform: rotate(-45deg);*/
-/*}*/
+
+#deaths-bar-chart .x.axis text {
+    text-anchor: start !important;
+    transform: rotate(35deg);
+}
 
 div#scroll-table {
   clear:both;

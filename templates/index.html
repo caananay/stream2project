@@ -1,142 +1,192 @@
 {% extends "layout.html"%}
 
-{% block navigation %}
-    <li><a class= "menu" href="dashboard">Dashboard</a></li>
-
-{% endblock %}
-
-
 {% block content %}
 
 <div class="row">
-    <section class="col-sm-12">
-         <div class="top-container">
-            <h2>Significant Earthquakes</h2>
-            <p class="nice">The data set used for the dashboard on this website is culled from the following database National Geophysical Data Center / World Data Service (NGDC/WDS): Significant Earthquake Database. National Geophysical Data Center, NOAA.<a href="http://dx.doi.org/10.7289/V5TD9V7K">doi:10.7289/V5TD9V7K</a> </p>
-            <p class="nice">The dashboard displays information on destructive earthquakes from 2006 to 2016 (with the exclusion of Haiti) that
-        meet at least one of the following criteria: 10 0r more deaths and Magnitude 4.5 or greater.</p>
-        </div>
-    </section>
-    <section class="col-sm-12">
-        <div class="top-container">
-            <h2>The Dashboard Explained</h2>
-            <p class="nice">There are 5 graphical charts and a table have been used to visualize the data set, these are listed below:</p>
-        </div>
-    </section>
-    <section class="col-sm-6 col-md-4">
-        <div class="sub-container">
-            <img class="img-thumbnail img-responsive" src="/static/images/barchart.png">
-            <h3>Bar Chart</h3>
-            <p class="nice">The bar chart represents the total number of deaths that occurred in various locations.</p>
-            <br><br>
-        </div>
-    </section>
+  <section class="col-sm-12">
+    <div class="top-container">
+      <h2>Significant Earthquakes</h2>
+      <p class="nice">The data set used for the dashboard on this website is culled from the following database National Geophysical Data Center / World Data Service (NGDC/WDS): Significant Earthquake Database. National Geophysical Data Center, NOAA.<a href="http://dx.doi.org/10.7289/V5TD9V7K">doi:10.7289/V5TD9V7K</a> </p>
+      <p class="nice">The dashboard displays information on destructive earthquakes from 2006 to 2016 (with the exclusion of Haiti) that meet at least one of the following criteria: 10 0r more deaths and Magnitude 4.5 or greater.</p>
+    </div>
+  </section>
+  <div class="col-sm-1 space">
+    <button class="intro_button btn btn-success" type="button" autofocus onclick="javascript:introJs().start();">Get More Info on the Charts!</button>
+  </div>
 
-     <section class="col-sm-6 col-md-4">
-         <div class="sub-container">
-            <img class="img-thumbnail img-responsive" src="/static/images/map.png">
-            <h3>Choropleth Map</h3>
-            <p class="nice">The choropleth map of the world represents the total number of injuries by country. All the areas coloured light blue show counties where no earthquakes occurred.</p>
-         </div>
-    </section>
+  <!-- Deaths Chart -->
+  <div id="resizeChart" class="col-md-12">
+    <div class="chart-wrapper opc-container" data-step="1" data-intro="The bar chart represents the total number of deaths by location name" style="font-weight: normal" data-position="bottom">
+      <div class="chart-title">
+        <h5>Total Number of Deaths by Location</h5>
+        <button id= "deathsBarChartReset" class="reset btn btn-primary btn-xs">reset</button>
+      </div><!--/.chart-title-->
+      <div class="chart-stage">
+        <div id="deaths-bar-chart"></div>
+      </div>
+    </div>
+  </div>
+  <!-- Deaths Chart -->
 
-    <section class="col-sm-6 col-md-4">
-        <div class="sub-container">
-            <img class="img-thumbnail img-responsive" src="/static/images/rowchart.jpeg">
-            <h3>Row Chart</h3>
-            <p class="nice">The row chart represents earthquake count by country. This shows the country where an earthquake occurred and the number of times it occurred in the given time frame.</p>
-        </div>
-    </section>
+  <!-- injuries Map -->
+  <div class="col-md-12">
+    <div class="chart-wrapper" data-step="2" data-intro="The choropleth map of the world represents the total number of injuries by country. All the areas coloured light blue show counties where no earthquakes occurred." style="font-weight: normal" data-position="bottom">
+      <div class="chart-title">
+        <h5>Total Number of Injuries by Country</h5>
+        <button id= "mapReset" class="reset btn btn-primary btn-xs">reset</button>
+      </div>
+      <div class="chart-stage">
+        <div id="map"></div>
+      </div>
+    </div>
+  </div>
+  <!-- injuries Map -->
 
+  <!-- Country -->
+  <div id="resizeRow" class="col-md-8">
+    <div class="chart-wrapper" data-step="3" data-intro="The row chart represents earthquake count by country. This shows the country where an earthquake occurred and the number of times it occurred in the given timeframe of 2006 to 2016." style="font-weight: normal" data-position="bottom">
+      <div class="chart-title">
+        <h5>Earthquake count by Country</h5>
+        <button id= "countryChartReset" class="reset btn btn-primary btn-xs">reset</button>
+      </div>
+      <div class="chart-stage">
+        <div id="country-chart"></div>
+      </div>
+    </div>
+  </div>
+  <!-- Country -->
 
-     <section class="col-sm-6 col-md-4">
-         <div class="sub-container">
-             <img class="img-thumbnail img-responsive" src="/static/images/bubblechart.png">
-             <h3>Bubble Chart</h3>
-             <p class="nice">The bubble chart shows the relationship between the focal depth, primary magnitude and the total number of death.</p>
-         </div>
-    </section>
-<div class="clearfix visible-sm-block"></div>
-     <section class="col-sm-6 col-md-4">
-         <div class="sub-container">
-            <img class="img-thumbnail img-responsive" src="/static/images/piechart.jpeg">
-            <h3>Pie Chart</h3>
-            <p class="nice">The pie chart shows the years between 2006 and 2016 an earthquake occurred and the count.</p>
-         </div>
-    </section>
+  <!-- Year -->
+  <div class="col-md-4">
+    <div class="chart-wrapper" data-step="4" data-intro="The pie chart shows the years between 2006 and 2016 an earthquake occurred and the count." style="font-weight: normal" data-position="bottom">
+      <div class="chart-title">
+        <h5>Earthquake count by Year</h5>
+        <button id= "pieChartReset" class="reset btn btn-primary btn-xs">reset</button>
+      </div>
+      <div class="chart-stage">
+        <div id="year-pie-chart"></div>
+      </div>
+    </div>
+  </div>
+  <!-- Year-->
 
-    <section class="col-sm-6 col-md-4">
-        <div class="sub-container">
-            <img class="img-thumbnail img-responsive" src="/static/images/table.png">
-            <h3>Data Table</h3>
-            <p class="nice">The table shows all the relevant data for the earthquakes that occured within the period of 2006 and 2016.</p>
-        </div>
-     </section>
+  <!-- Depth -->
+  <div class="col-md-12">
+    <div class="chart-wrapper" data-step="5" data-intro="The bubble chart shows the relationship between the focal depth, primary magnitude and the total number of death." style="font-weight: normal" data-position="bottom">
+      <div class="chart-title">
+        <h5>Overview of Focal Depth, Magnitude and resulting deaths</h5>
+        <button id= "bubbleChartReset" class="reset btn btn-primary btn-xs">reset</button>
+      </div>
+      <div class="chart-stage">
+        <div id="total-chart"></div>
+      </div>
+    </div>
+  </div>
+  <!-- Depth -->
 
-    <section class="col-sm-12 table-responsive">
-        <div class="table-container">
-            <h2>Variable Definitions for the Significant Earthquakes</h2>
-            <table class="def table">
-                <thead>
-                     <tr>
+<!-- Earthquakes Table -->
+  <div class="col-md-12">
+    <div class="chart-wrapper" data-step="6" data-intro="The table shows all the relevant data for the earthquakes that occured within the period of 2006 and 2016." style="font-weight: normal" data-position="bottom">
+      <div class="chart-title">
+        <h5 style="display: inline;">Significant Quakes Table</h5>
+        <!-- Trigger the modal with a button -->         
+        <button type="button" style="float: right;" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal">Table Header Definitions</button>
+
+        <!-- Modal -->
+        <div id="myModal" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+          <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Variable Definitions for the Significant Earthquakes</h4>
+              </div>
+              <div class="modal-body">
+                <section class="col-sm-12 table-responsive">
+                  <table class="def table">
+                    <thead>
+                      <tr>
                         <th>Variables</th>
                         <th>Definitions</th>
-                     </tr>
-                </thead>
-                <tbody>
-
-                    <tr>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
                         <td>Country</td>
                         <td>The Country where the Earthquake occurred</td>
-                    </tr>
-                    <tr>
+                      </tr>
+                      <tr>
                         <td>Location Name</td>
                         <td>The Country, State, Province or City where the Earthquake occurred (For example enter: USA or California or San Francisco)</td>
-                    </tr>
-                    <tr>
-                         <td>Focal Depth</td>
+                      </tr>
+                      <tr>
+                        <td>Focal Depth</td>
                         <td>The depth of the earthquake is given in kilometers.</td>
-                    </tr>
-                    <tr>
+                      </tr>
+                      <tr>
                         <td>EQ Primary</td>
                         <td>The Primary Magnitude of the Earthquake</td>
-                    </tr>
-                    <tr>
-                         <td>MS Magnitude</td>
-                        <td>The Ms magnitude is the surface-wave magnitude of the earthquake.
-
-                The magnitude is a measure of seismic energy. The magnitude scale is logarithmic. An increase of one in magnitude represents a tenfold increase in the recorded wave amplitude. However, the energy release associated with an increase of one in magnitude is not tenfold,
-                            but about thirtyfold. For example, approximately 900 times more energy is released in an earthquake of magnitude 7 than in an earthquake of magnitude 5. Each increase in magnitude of one unit is equivalent to an increase of seismic
-                            energy of about 1.6 x 10,000,000,000,000 ergs.</td>
-                    </tr>
-                    <tr>
-                          <td>MB Magnitude</td>
-                        <td>The Mb magnitude is the compressional body wave (P-wave) magnitude.
-
-                The magnitude is a measure of seismic energy. The magnitude scale is logarithmic. An increase of one in magnitude represents a tenfold increase in the recorded wave amplitude. However, the energy release associated with an increase of one in magnitude is not tenfold, but about thirtyfold. For example, approximately 900 times more energy is released in an earthquake of magnitude 7 than in an earthquake of magnitude 5. Each increase in magnitude of one unit is equivalent to an increase of seismic energy of about 1.6 x 10,000,000,000,000 ergs.
-
-                </td>
-                    </tr>
-                    <tr>
-                         <td>Total Number of Deaths</td>
+                      </tr>
+                      <tr>
+                        <td>MS Magnitude</td>
+                        <td>The Ms magnitude is the surface-wave magnitude of the earthquake.The magnitude is a measure of seismic energy. The magnitude scale is logarithmic. An increase of one in magnitude represents a tenfold increase in the recorded wave amplitude. However, the energy release associated with an increase of one in magnitude is not tenfold, but about thirtyfold. For example, approximately 900 times more energy is released in an earthquake of magnitude 7 than in an earthquake of magnitude 5. Each increase in magnitude of one unit is equivalent to an increase of seismic energy of about 1.6 x 10,000,000,000,000 ergs.</td>
+                      </tr>
+                      <tr>
+                        <td>MB Magnitude</td>
+                        <td>The Mb magnitude is the compressional body wave (P-wave) magnitude. The magnitude is a measure of seismic energy. The magnitude scale is logarithmic. An increase of one in magnitude represents a tenfold increase in the recorded wave amplitude. However, the energy release associated with an increase of one in magnitude is not tenfold, but about thirtyfold. For example, approximately 900 times more energy is released in an earthquake of magnitude 7 than in an earthquake of magnitude 5. Each increase in magnitude of one unit is equivalent to an increase of seismic energy of about 1.6 x 10,000,000,000,000 ergs.
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Total Number of Deaths</td>
                         <td>Whenever possible, total number of deaths from the earthquake and secondary effects are listed. When references give different death tolls, each death toll and corresponding reference is listed as a separate record.</td>
-
-                    </tr>
-                    <tr>
-                         <td>Total Number of Injuries</td>
+                      </tr>
+                      <tr>
+                        <td>Total Number of Injuries</td>
                         <td>Whenever possible, numbers of injuries from the earthquake are listed.</td>
-                    </tr>
-                    <tr>
+                      </tr>
+                      <tr>
                         <td>Total Number of Houses Destroyed</td>
                         <td>Whenever possible, numbers of houses destroyed are listed.</td>
-                    </tr>
-                    <tr>
+                      </tr>
+                      <tr>
                         <td>Total Number of Houses Damaged</td>
                         <td>Whenever possible, numbers of houses Damaged are listed.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </section>
+                      </tr>
+                    </tbody>
+                  </table>
+                </section>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div><!--modal-content-->
+          </div><!--modal-dialog-->
+        </div><!--Modal-->
+      </div><!--/.chart-title-->
+      <div class="chart-stage">
+        <div id="scroll-table">
+          <div class="dc-data-count"></div>
+          <table id="sigQuake-table" class="table table-hover"></table>
+          <div id="paging">
+            Showing <span id="begin"></span>-<span id="end"></span> of <span id="size"></span>.
+            <input id="last" class="btn" type="Button" value="Last"/>
+            <input id="next" class="btn" type="button" value="Next"/>
+          </div>
+      </div>
+    </div><!--/.chart-wrapper-->
+  </div>
+<!-- Earthquakes Table -->
 </div>
+ 
+</div><!--/.row-->
+{% endblock %}
+
+{% block additionalScripts  %}
+  <script src="{{ url_for ('static', filename='lib/js/crossfilter.js')}}"></script>
+  <script src="{{ url_for ('static', filename='lib/js/d3.js')}}"></script>
+  <script src="{{ url_for ('static', filename='lib/js/dc.js')}}"></script>
+  <script src="{{ url_for ('static', filename='lib/js/queue.js')}}"></script>
+  <script src="{{ url_for ('static', filename='lib/js/keen.min.js')}}"></script>
+  <script src="{{ url_for ('static', filename='lib/js/intro.js')}}"></script>
+  <script src="{{ url_for ('static', filename='js/graph.js')}}"></script>
 {% endblock %}
