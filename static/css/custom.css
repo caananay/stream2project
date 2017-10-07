@@ -77,7 +77,7 @@ a.menu{
 
 #deaths-bar-chart .x.axis text {
     text-anchor: start !important;
-    transform: rotate(50deg);
+    transform: rotate(60deg);
 }
 
 div#scroll-table {
