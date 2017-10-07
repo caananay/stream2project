@@ -131,7 +131,7 @@ function makeGraphs(error, projectsJson, countryJson) {
   deathBarChart
     .width(chartWidth)
     .height(500)
-    .margins({top: 10, right: 90, bottom: 240, left: 35})
+    .margins({top: 10, right: 90, bottom: 245, left: 35})
     .dimension(locationDim)
     .group(deathsByLocation)
     .x(d3.scale.ordinal().domain(uniqueLocations))
