@@ -8,18 +8,18 @@ the focal depth & magnitude of the earthquake.
 The data set used for the dashboard on this website is culled from the following database National Geophysical Data Center / World Data Service (NGDC/WDS): Significant Earthquake Database. National Geophysical Data Center, NOAA.<a href="http://dx.doi.org/10.7289/V5TD9V7K">doi:10.7289/V5TD9V7K</a>
 The dashboard displays information on destructive earthquakes from 2006 to 2016 (with the exclusion of *Haiti, Japan: Honshu, China: Sichuan) that meet at least one of the following criteria: 10 0r more deaths and Magnitude 7.5 or greater.
 
-The website consists of two pages, the home page and the dashboard page.
+The website consists of one page, the dashboard page.
 
-The home page includes details of what the website is about, where the data set was gotten from, definitions of variables used in the data set, what the information on the dashboard represent and how to use the dashboard.
+The dashboard page includes details of what the website is about, where the data set was gotten from, definitions of variables used in the data set (in a modal accessed from the table chart), what the information on the dashboard represent and how to use the dashboard.
 
-On the other hand the dashboard page displays a graphical representation of the data set used, showing:
+It also displays a graphical representation of the data set used, showing:
 
  - A bar chart with the total number of deaths by location name
  - A choropleth map of the world showing the total number of injuries by country. All the areas coloured light blue show counties where no earthquakes occurred.
  - A row chart showing earthquake count by country. This shows the country where an earthquake occurred and the number of times it occurred in the given timeframe of 2006 to 2016.
  - A bubble chart showing the relationship between the focal depth, primary magnitude and the total number of death.
  - A pie chart showing the years between 2006 and 2016 an earthquake occurred and the count.
- - A table showing all the relevant data for the earthquakes that occurred within the period of 2006 and 2016.</p>
+ - A table showing all the relevant data for the earthquakes that occurred within the period of 2006 and 2016.
 
 TECHNOLOGIES USED:
 
