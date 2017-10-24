@@ -33,15 +33,15 @@
 
    The website was designed using the following technologies:
 
-   - Bootstrap and CSS: this was used for the page layout design, look and feel of the website.
-   - d3.js: is a JavaScript library for visualizing data using web standards.
-   - dc.js: is a javascript library for dimensional charting built to work natively with crossfilter and rendered using d3.js. It has been used in this project to render charts that are data driven and reactive which provide instant feedback to user interaction.
-   - javascript: used for the data table pagination
-   - Python: is used to build the backend of the project, to link the frontend with the database.
-   - Mongo DB: is a noSQL database, which has been used in this project to store the earthquake data.
-   - Crossfilter.js: used to ensure that the charts on the dashboard have filtering capabilities.
-   - HTML: is used to build the webpages
-   - Flask: is a microframework for Python and is used in this project as a development server and debugger
+   - *Bootstrap and CSS*: this was used for the page layout design, look and feel of the website.
+   - *D3.js*: is a JavaScript library for visualizing data using web standards.
+   - *DC.js*: is a javascript library for dimensional charting built to work natively with crossfilter and rendered using d3.js. It has been used in this project to render charts that are data driven and reactive which provide instant feedback to user interaction.
+   - *Javascript*: used for the data table pagination
+   - *Python*: is used to build the backend of the project, to link the frontend with the database.
+   - *Mongo DB*: is a noSQL database, which has been used in this project to store the earthquake data.
+   - *Crossfilter.js*: used to ensure that the charts on the dashboard have filtering capabilities.
+   - *HTML*: is used to build the webpages
+   - *Flask*: is a microframework for Python and is used in this project as a development server and debugger
 
 ### CREDITS:
 
