@@ -77,8 +77,8 @@
 
    when importing the earthquakes data from the results.csv file, use the mongodb shell command below to change Total_deaths to a number variable, otherwise the dashboard won't load any data when run
 
-```db.project2.find({TOTAL_DEATHS : {$exists : true}}).forEach( function(obj)
- { obj.TOTAL_DEATHS = new NumberInt( obj.TOTAL_DEATHS ); db.project2.save(obj); } );```
+```db.project2.find({TOTAL_DEATHS : {$exists : true}}).forEach( function(obj)```
+ ```{ obj.TOTAL_DEATHS = new NumberInt( obj.TOTAL_DEATHS ); db.project2.save(obj); } );```
 
 ### EXCLUSIONS FROM THE DATASET:
 
